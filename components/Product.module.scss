@@ -1,0 +1,41 @@
+$Bg-Yellow-500: rgb(245, 158, 11);
+
+.card {
+  max-width: 30rem;
+  min-height: 40rem;
+  padding: 1rem;
+  background-color: red;
+  margin-bottom: 1.5rem;
+
+  &__imageBox {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    height: 25rem;
+  }
+
+  &__title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  &__description {
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+}
+
+.ratingBox {
+  margin-top: 1rem;
+}
+
+.starIcon {
+  width: 2rem;
+  color: $Bg-Yellow-500;
+}
