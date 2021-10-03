@@ -38,7 +38,22 @@ function Header() {
           </div>
         </div>
       </header>
-      <nav className={styles.navbar}>Navbar</nav>
+      <nav className={styles.navbar}>
+        <ul className={styles.navList}>
+          <li className={styles.navList__item}>
+            <p>
+              <MenuIcon />
+            </p>
+            All
+          </li>
+          <li className={styles.navList__item}>Electronics</li>
+          <li className={styles.navList__item}>Jewelry</li>
+          <li className={styles.navList__item}>Clothes</li>
+          <li className={styles.navList__item}>Food and Grocery</li>
+          <li className={styles.navList__item}>Shopper Toolkit</li>
+          <li className={styles.navList__item}>Prime</li>
+        </ul>
+      </nav>
     </header>
   );
 }

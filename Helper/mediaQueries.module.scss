@@ -5,3 +5,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .searchBox {
+    display: none;
+  }
+
+  .navList__item:not(:first-child) {
+    display: none;
+  }
+}
