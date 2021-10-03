@@ -4,8 +4,9 @@ $Bg-Yellow-500: rgb(245, 158, 11);
   max-width: 30rem;
   min-height: 40rem;
   padding: 1rem;
-  background-color: red;
+  background-color: #fff;
   margin-bottom: 1.5rem;
+  justify-self: center;
 
   &__imageBox {
     position: relative;

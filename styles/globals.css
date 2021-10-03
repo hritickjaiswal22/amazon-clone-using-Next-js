@@ -16,6 +16,10 @@ a {
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(229, 231, 235);
+}
+
 header {
   position: sticky;
   width: 100%;
