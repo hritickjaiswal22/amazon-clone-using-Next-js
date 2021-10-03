@@ -1,3 +1,12 @@
+import { Fragment } from "react";
+
+import Header from "../components/Header";
+
 export default function Home() {
-  return <h1>Amazon clone</h1>;
+  return (
+    <Fragment>
+      <Header />
+      <main></main>
+    </Fragment>
+  );
 }

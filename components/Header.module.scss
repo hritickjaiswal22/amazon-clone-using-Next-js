@@ -1,0 +1,83 @@
+@import "../Helper/mixins.module.scss";
+
+$Light-Blue: #232f3e;
+$Default-Blue: #131921;
+$Bg-Yellow-400: rgb(251, 191, 36);
+
+.topHeader {
+  background-color: $Default-Blue;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoBox {
+  position: relative;
+  width: 8rem;
+  height: 3rem;
+  cursor: pointer;
+
+  div {
+    width: 8rem;
+  }
+}
+
+.searchBox {
+  max-width: 80rem;
+  width: 60%;
+  display: flex;
+
+  &__searchBar {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: inherit;
+  }
+
+  &__iconBox {
+    background-color: $Bg-Yellow-400;
+    color: black;
+    width: 3.5rem;
+    @include flexCenter();
+    cursor: pointer;
+  }
+
+  &__searchIcon {
+    width: 3rem;
+  }
+}
+
+.profileBox {
+  @include flexCenter();
+
+  div {
+    width: 7.5rem;
+  }
+
+  div:last-child {
+    p {
+      width: 3rem;
+      text-align: center;
+      align-self: center;
+      display: inline-block;
+    }
+
+    h1 {
+      display: inline-block;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@import "../Helper/mediaQueries.module.scss";
