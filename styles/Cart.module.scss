@@ -1,0 +1,31 @@
+.main {
+  max-width: 130rem;
+  min-height: 20rem;
+  width: 98%;
+  padding: 2rem;
+  margin: 0 auto;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart {
+  width: 80%;
+  background-color: #fff;
+  padding: 2rem;
+  margin-right: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.priceBox {
+  width: 20rem;
+  min-height: 20rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fff;
+}

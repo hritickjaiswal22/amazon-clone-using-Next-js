@@ -5,11 +5,19 @@ import Banner from "../components/Banner";
 import ProductList from "../components/ProductList";
 
 export default function Home({ products }) {
+  const addToCartClickHandler = (event) => {
+    const productNo = event.target.parentElement.id;
+    console.log(products[productNo - 1]);
+  };
+
   return (
     <Fragment>
       <Header />
       <Banner />
-      <ProductList products={products} />
+      <ProductList
+        addToCartClickHandler={addToCartClickHandler}
+        products={products}
+      />
     </Fragment>
   );
 }

@@ -7,7 +7,7 @@ import Button from "./Button";
 
 function Product({ product }) {
   return (
-    <div key={product.id} className={styles.card}>
+    <div id={product.id} key={product.id} className={styles.card}>
       <div className={styles.card__imageBox}>
         <Image
           className={styles.card__image}
@@ -26,7 +26,7 @@ function Product({ product }) {
       </div>
       <p className={styles.card__description}>{product.description}</p>
       <p className={styles.card__price}>{`$ ${product.price}`}</p>
-      <Button />
+      <Button children="Add to Cart" />
     </div>
   );
 }

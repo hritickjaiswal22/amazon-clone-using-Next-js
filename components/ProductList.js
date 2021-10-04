@@ -1,9 +1,9 @@
 import Product from "./Product";
 import styles from "./ProductList.module.scss";
 
-function ProductList({ products }) {
+function ProductList({ products, addToCartClickHandler }) {
   return (
-    <main className={styles.productList}>
+    <main onClick={addToCartClickHandler} className={styles.productList}>
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
