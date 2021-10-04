@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import { Provider } from "react-redux";
 
+import store from "../store/index";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -10,7 +12,9 @@ function MyApp({ Component, pageProps }) {
         <title>Amazon Clone using Next js</title>
         <meta name="description" content="Amazon clone using Next js" />
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </Fragment>
   );
 }

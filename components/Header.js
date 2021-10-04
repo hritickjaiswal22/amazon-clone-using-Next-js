@@ -5,10 +5,13 @@ import {
   MenuIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { useSelector } from "react-redux";
 
 import styles from "./Header.module.scss";
 
 function Header() {
+  const cartItems = useSelector((state) => state.cart);
+
   return (
     <header>
       <header className={styles.topHeader}>
@@ -34,7 +37,7 @@ function Header() {
             <p>
               <ShoppingCartIcon />
             </p>
-            <h1>0</h1>
+            <h1>{cartItems.length}</h1>
           </div>
         </div>
       </header>

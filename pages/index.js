@@ -1,13 +1,17 @@
 import { Fragment } from "react";
+import { useDispatch } from "react-redux";
 
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import ProductList from "../components/ProductList";
+import { addToCart } from "../slices/cartSlice";
 
 export default function Home({ products }) {
+  const dispatch = useDispatch();
+
   const addToCartClickHandler = (event) => {
     const productNo = event.target.parentElement.id;
-    console.log(products[productNo - 1]);
+    dispatch(addToCart(products[productNo - 1]));
   };
 
   return (
