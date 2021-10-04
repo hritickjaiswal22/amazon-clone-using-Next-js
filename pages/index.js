@@ -10,8 +10,10 @@ export default function Home({ products }) {
   const dispatch = useDispatch();
 
   const addToCartClickHandler = (event) => {
-    const productNo = event.target.parentElement.id;
-    dispatch(addToCart(products[productNo - 1]));
+    if (event.target.nodeName === "BUTTON") {
+      const productNo = event.target.parentElement.id;
+      dispatch(addToCart(products[productNo - 1]));
+    }
   };
 
   return (

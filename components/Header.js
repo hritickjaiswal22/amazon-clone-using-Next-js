@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
 import {
   SearchIcon,
@@ -6,6 +6,7 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 import styles from "./Header.module.scss";
 
@@ -33,12 +34,14 @@ function Header() {
             <p>Returns</p>
             <h1>& Orders</h1>
           </div>
-          <div>
-            <p>
-              <ShoppingCartIcon />
-            </p>
-            <h1>{cartItems.length}</h1>
-          </div>
+          <Link href="/cart">
+            <div>
+              <p>
+                <ShoppingCartIcon />
+              </p>
+              <h1>{cartItems.length}</h1>
+            </div>
+          </Link>
         </div>
       </header>
       <nav className={styles.navbar}>
