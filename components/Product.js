@@ -7,7 +7,7 @@ import Button from "./Button";
 
 function Product({ product }) {
   return (
-    <div key={product.key} className={styles.card}>
+    <div key={product.id} className={styles.card}>
       <div className={styles.card__imageBox}>
         <Image
           className={styles.card__image}

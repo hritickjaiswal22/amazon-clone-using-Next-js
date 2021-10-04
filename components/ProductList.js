@@ -5,7 +5,7 @@ function ProductList({ products }) {
   return (
     <main className={styles.productList}>
       {products.map((product) => (
-        <Product product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </main>
   );

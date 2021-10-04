@@ -3,5 +3,6 @@
   margin: 0 auto;
   width: 98%;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 40rem));
 }
