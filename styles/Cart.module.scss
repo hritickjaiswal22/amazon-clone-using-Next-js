@@ -7,7 +7,7 @@
   color: black;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
 .cart {
@@ -29,3 +29,5 @@
   text-align: center;
   background-color: #fff;
 }
+
+@import "../Helper/mediaQueries.module.scss";

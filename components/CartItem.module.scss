@@ -4,16 +4,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 
   &__infoBox {
     display: flex;
     width: 85%;
+    align-items: center;
   }
 
   &__imageBox {
-    width: 20rem;
-    height: 25rem;
     position: relative;
+    min-width: 20rem;
+    min-height: 20rem;
+    max-height: 22rem;
   }
 
   &__descriptionBox {
@@ -36,3 +39,5 @@
 .ratingBox {
   @extend .ratingBox;
 }
+
+@import "../Helper/mediaQueries.module.scss";

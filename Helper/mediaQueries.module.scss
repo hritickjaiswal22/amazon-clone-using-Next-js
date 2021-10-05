@@ -1,8 +1,21 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .profileBox {
     div {
       width: 5rem;
     }
+  }
+
+  .main {
+    display: block;
+  }
+
+  .cart {
+    width: 100%;
+  }
+
+  .priceBox {
+    width: 100%;
+    margin-top: 2rem;
   }
 }
 
@@ -13,5 +26,19 @@
 
   .navList__item:not(:first-child) {
     display: none;
+  }
+
+  .cartItem {
+    display: block;
+
+    &__infoBox {
+      display: block;
+      width: 100%;
+    }
+
+    &__imageBox {
+      max-width: 22rem;
+      margin: 0 auto;
+    }
   }
 }
