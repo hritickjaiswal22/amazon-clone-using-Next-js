@@ -7,7 +7,7 @@ import Button from "../components/Button";
 
 function CartItem({ product }) {
   return (
-    <div className={styles.cartItem}>
+    <div id={product.id} className={styles.cartItem}>
       <div className={styles.cartItem__infoBox}>
         <div className={styles.cartItem__imageBox}>
           <Image
@@ -33,6 +33,7 @@ function CartItem({ product }) {
       </div>
       <div className={styles.cartItem__buttonBox}>
         <Button children="Remove from Cart" />
+        <Button children="Add to Cart" />
       </div>
     </div>
   );

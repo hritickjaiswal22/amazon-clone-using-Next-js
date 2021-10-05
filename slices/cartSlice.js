@@ -21,10 +21,26 @@ const cartSlice = createSlice({
         currentState.cart[index].quantity++;
       }
     },
-    removeFromCart(currentState, action) {},
+    removeFromCart(currentState, action) {
+      const productId = +action.payload[0];
+      const index = currentState.cart.findIndex(
+        (product) => product.id === productId
+      );
+      if (currentState.cart[index].quantity > 1)
+        currentState.cart[index].quantity--;
+      else currentState.cart.splice(index, 1);
+    },
+    increaseQuantity(currentState, action) {
+      const productId = +action.payload[0];
+      const index = currentState.cart.findIndex(
+        (product) => product.id === productId
+      );
+      currentState.cart[index].quantity++;
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions; //* Action Creators
+export const { addToCart, removeFromCart, increaseQuantity } =
+  cartSlice.actions; //* Action Creators
 
 export default cartSlice.reducer;
