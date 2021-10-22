@@ -17,7 +17,9 @@ function Header() {
     <header>
       <header className={styles.topHeader}>
         <div className={styles.logoBox}>
-          <Image src="/amazon_logo.png" alt="Amazon Logo" layout="fill" />
+          <Link href="/signin">
+            <Image src="/amazon_logo.png" alt="Amazon Logo" layout="fill" />
+          </Link>
         </div>
         <div className={styles.searchBox}>
           <input type="text" className={styles.searchBox__searchBar} />

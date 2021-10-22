@@ -1,0 +1,35 @@
+.form {
+  max-width: 35rem;
+  width: 98%;
+  margin: auto auto;
+  margin-top: 5rem;
+  padding: 3rem;
+  border: 1px solid rgb(229, 231, 235);
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: block;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+    border: 1px solid #a6a6a6;
+    margin-bottom: 1rem;
+  }
+
+  &__input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+  }
+}
