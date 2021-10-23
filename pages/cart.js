@@ -8,7 +8,7 @@ import Button from "../components/Button";
 import styles from "../styles/Cart.module.scss";
 
 function Cart() {
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cartState.cart);
   const dispatch = useDispatch();
 
   let totalPrice = cartItems.reduce(

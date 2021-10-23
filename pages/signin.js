@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import Form from "../components/Form";
 import Button from "../components/Button";
@@ -15,7 +16,11 @@ function SignIn() {
 
   return (
     <main className={styles.main}>
-      <Form formHeading="Sign-In" />
+      <Form
+        authHandler={signInWithEmailAndPassword}
+        formHeading="Sign-In"
+        takeUserName={true}
+      />
       <h6 className={styles.h6}>New to Amazon?</h6>
       <Button clickHandler={clickHandler}>Create your Amazon Account</Button>
     </main>

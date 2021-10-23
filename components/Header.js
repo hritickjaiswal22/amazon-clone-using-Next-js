@@ -5,13 +5,22 @@ import {
   MenuIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 
 import styles from "./Header.module.scss";
+import { saveUser, saveUserName } from "../slices/authSlice";
 
 function Header() {
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cartState.cart);
+  const user = useSelector((state) => state.authState.user);
+  const userName = useSelector((state) => state.authState.userName);
+  const dispatch = useDispatch();
+
+  const signOutHandler = () => {
+    dispatch(saveUser(undefined));
+    dispatch(saveUserName(undefined));
+  };
 
   return (
     <header>
@@ -29,8 +38,14 @@ function Header() {
         </div>
         <div className={styles.profileBox}>
           <div>
-            <p>Hello Guest</p>
-            <h1>Sign In</h1>
+            {user ? <p>{`Hello ${userName}`}</p> : <p>Hello Guest</p>}
+            {user ? (
+              <h1 onClick={signOutHandler}>Sign Out</h1>
+            ) : (
+              <Link href="/signin">
+                <h1>Sign In</h1>
+              </Link>
+            )}
           </div>
           <div>
             <p>Returns</p>
