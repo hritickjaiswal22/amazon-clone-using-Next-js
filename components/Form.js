@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./Form.module.scss";
 import Button from "../components/Button";
 
-function Form() {
+function Form({ formHeading }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(
@@ -17,7 +17,7 @@ function Form() {
 
   return (
     <form className={styles.form} onSubmit={submitHandler}>
-      <h1 className={styles.form__heading}>Sign-In</h1>
+      <h1 className={styles.form__heading}>{formHeading}</h1>
       <label className={styles.form__label}>Email</label>
       <input
         onChange={(e) => setEmail(e.target.value)}
@@ -39,7 +39,7 @@ function Form() {
         type="input"
         className={styles.form__input}
       />
-      <Button>Log In</Button>
+      <Button>{formHeading}</Button>
     </form>
   );
 }

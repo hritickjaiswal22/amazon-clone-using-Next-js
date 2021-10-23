@@ -17,7 +17,7 @@ function Header() {
     <header>
       <header className={styles.topHeader}>
         <div className={styles.logoBox}>
-          <Link href="/signin">
+          <Link href="/">
             <Image src="/amazon_logo.png" alt="Amazon Logo" layout="fill" />
           </Link>
         </div>
