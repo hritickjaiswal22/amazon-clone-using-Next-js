@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../components/Header";
 import Banner from "../components/Banner";
@@ -8,6 +8,8 @@ import { addToCart } from "../slices/cartSlice";
 
 export default function Home({ products }) {
   const dispatch = useDispatch();
+  const authState = useSelector((state) => state.authState);
+  console.log(authState);
 
   const addToCartClickHandler = (event) => {
     if (event.target.nodeName === "BUTTON") {

@@ -6,6 +6,7 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useSelector, useDispatch } from "react-redux";
+import { getAuth, signOut } from "firebase/auth";
 import Link from "next/link";
 
 import styles from "./Header.module.scss";
@@ -16,10 +17,13 @@ function Header() {
   const user = useSelector((state) => state.authState.user);
   const userName = useSelector((state) => state.authState.userName);
   const dispatch = useDispatch();
+  const auth = getAuth();
 
   const signOutHandler = () => {
-    dispatch(saveUser(undefined));
-    dispatch(saveUserName(undefined));
+    signOut(auth).then(() => {
+      dispatch(saveUser(undefined));
+      dispatch(saveUserName(undefined));
+    });
   };
 
   return (

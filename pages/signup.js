@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import Form from "../components/Form";
 import Button from "../components/Button";
@@ -15,11 +14,7 @@ function SignUp() {
 
   return (
     <main className={styles.main}>
-      <Form
-        authHandler={createUserWithEmailAndPassword}
-        formHeading="Sign-Up"
-        takeUserName={false}
-      />
+      <Form formHeading="Sign-Up" takeUserName={true} />
       <h6 className={styles.h6}>Already a memeber?</h6>
       <Button clickHandler={clickHandler}>Sign In</Button>
     </main>

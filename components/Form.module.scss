@@ -1,3 +1,15 @@
+.errorBox {
+  max-width: 30rem;
+  margin: 3rem auto;
+  box-shadow: 0 0 0 5px #fcf4f4 inset;
+  border: 2px solid #c40000;
+  padding: 2rem;
+  color: #c40000;
+  font-size: 2rem;
+  text-align: center;
+  display: none;
+}
+
 .form {
   max-width: 35rem;
   width: 98%;
@@ -32,4 +44,8 @@
     border-color: #e77600;
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
   }
+}
+
+.visible {
+  display: block;
 }
