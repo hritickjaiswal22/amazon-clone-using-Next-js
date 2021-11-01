@@ -21,7 +21,8 @@ function Cart() {
     if (event.target.nodeName === "BUTTON") {
       if (event.target.innerText === "Remove from Cart") {
         dispatch(removeFromCart([event.target.parentElement.parentElement.id]));
-      } else {
+      }
+      if (event.target.innerText === "Add to Cart") {
         dispatch(
           increaseQuantity([event.target.parentElement.parentElement.id])
         );
