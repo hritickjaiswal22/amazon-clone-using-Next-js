@@ -22,10 +22,12 @@ function Form({ formHeading, takeUserName }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const signUp = () => {
     if (email.length === 0 || password.length === 0 || userName.length === 0) {
       errorBoxRef.current.classList.add(styles.visible);
+      setIsLoading(false);
       return (errorBoxRef.current.innerText = "All fields are Required");
     }
 
@@ -36,17 +38,20 @@ function Form({ formHeading, takeUserName }) {
         });
         dispatch(saveUserName(userName));
         dispatch(saveUser(user.accessToken));
+        setIsLoading(false);
         router.push("/");
       })
       .catch((e) => {
         errorBoxRef.current.classList.add(styles.visible);
         errorBoxRef.current.innerText = e;
+        setIsLoading(false);
       });
   };
 
   const signIn = () => {
     if (email.length === 0 || password.length === 0) {
       errorBoxRef.current.classList.add(styles.visible);
+      setIsLoading(false);
       return (errorBoxRef.current.innerText = "All fields are Required");
     }
 
@@ -54,16 +59,19 @@ function Form({ formHeading, takeUserName }) {
       .then(({ user }) => {
         dispatch(saveUserName(user.displayName));
         dispatch(saveUser(user.accessToken));
+        setIsLoading(false);
         router.push("/");
       })
       .catch((e) => {
         errorBoxRef.current.classList.add(styles.visible);
         errorBoxRef.current.innerText = e;
+        setIsLoading(false);
       });
   };
 
   const submitHandler = (e) => {
     errorBoxRef.current.classList.remove(styles.visible);
+    setIsLoading(true);
     e.preventDefault();
     if (takeUserName) {
       signUp();
@@ -104,7 +112,7 @@ function Form({ formHeading, takeUserName }) {
         ) : (
           ""
         )}
-        <Button>{formHeading}</Button>
+        <Button>{isLoading ? <Loader /> : formHeading}</Button>
       </form>
     </Fragment>
   );
