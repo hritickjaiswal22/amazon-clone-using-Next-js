@@ -48,7 +48,7 @@ function Cart() {
           }
         >
           <h1>{`Total Price $${Math.round(totalPrice * 100) / 100}`}</h1>
-          <Button children="Place Order" />
+          <Button>Place Order</Button>
         </article>
       </main>
     </Fragment>

@@ -32,8 +32,8 @@ function CartItem({ product }) {
         </div>
       </div>
       <div className={styles.cartItem__buttonBox}>
-        <Button children="Remove from Cart" />
-        <Button children="Add to Cart" />
+        <Button>Remove from Cart</Button>
+        <Button>Add to Cart</Button>
       </div>
     </div>
   );

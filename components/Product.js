@@ -26,7 +26,7 @@ function Product({ product }) {
       </div>
       <p className={styles.card__description}>{product.description}</p>
       <p className={styles.card__price}>{`$ ${product.price}`}</p>
-      <Button children="Add to Cart" />
+      <Button>Add to Cart</Button>
     </div>
   );
 }
