@@ -7,6 +7,7 @@ $Bg-Yellow-500: rgb(245, 158, 11);
   background-color: #fff;
   margin-bottom: 1.5rem;
   justify-self: center;
+  transition: transform 0.3s;
 
   &__imageBox {
     position: relative;
@@ -30,6 +31,10 @@ $Bg-Yellow-500: rgb(245, 158, 11);
     font-size: 1.2rem;
     margin-top: 1rem;
   }
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .ratingBox {

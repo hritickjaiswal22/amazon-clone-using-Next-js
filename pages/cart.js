@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { increaseQuantity, removeFromCart } from "../slices/cartSlice";
@@ -10,6 +10,7 @@ import styles from "../styles/Cart.module.scss";
 function Cart() {
   const cartItems = useSelector((state) => state.cartState.cart);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.authState.userId);
 
   let totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -41,8 +42,12 @@ function Cart() {
                 <CartItem key={product.id} product={product} />
               ))}
         </article>
-        <article className={styles.priceBox}>
-          <h1>{`Total Price $${totalPrice}`}</h1>
+        <article
+          className={
+            user ? styles.priceBox : `${styles.priceBox} ${styles.disabled}`
+          }
+        >
+          <h1>{`Total Price $${Math.round(totalPrice * 100) / 100}`}</h1>
           <Button children="Place Order" />
         </article>
       </main>

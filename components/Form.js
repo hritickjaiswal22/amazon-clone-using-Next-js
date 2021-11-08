@@ -37,7 +37,7 @@ function Form({ formHeading, takeUserName }) {
           displayName: userName,
         });
         dispatch(saveUserName(userName));
-        dispatch(saveUser(user.accessToken));
+        dispatch(saveUser(user.uid));
         setIsLoading(false);
         router.push("/");
       })
@@ -58,7 +58,7 @@ function Form({ formHeading, takeUserName }) {
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(saveUserName(user.displayName));
-        dispatch(saveUser(user.accessToken));
+        dispatch(saveUser(user.uid));
         setIsLoading(false);
         router.push("/");
       })

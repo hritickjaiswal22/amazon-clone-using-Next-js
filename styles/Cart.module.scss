@@ -30,4 +30,11 @@
   background-color: #fff;
 }
 
+.priceBox.disabled {
+  button {
+    opacity: 0.5;
+    cursor: revert;
+  }
+}
+
 @import "../Helper/mediaQueries.module.scss";

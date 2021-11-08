@@ -8,31 +8,36 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { getAuth, signOut } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import styles from "./Header.module.scss";
 import { saveUser, saveUserName } from "../slices/authSlice";
 
 function Header() {
   const cartItems = useSelector((state) => state.cartState.cart);
-  const user = useSelector((state) => state.authState.user);
+  const user = useSelector((state) => state.authState.userId);
   const userName = useSelector((state) => state.authState.userName);
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const auth = getAuth();
 
   const signOutHandler = () => {
     signOut(auth).then(() => {
-      dispatch(saveUser(undefined));
-      dispatch(saveUserName(undefined));
+      dispatch(saveUser(null));
+      dispatch(saveUserName(null));
     });
+  };
+
+  const logoBoxClickHandler = () => {
+    router.push("/");
   };
 
   return (
     <header>
       <header className={styles.topHeader}>
-        <div className={styles.logoBox}>
-          <Link href="/">
-            <Image src="/amazon_logo.png" alt="Amazon Logo" layout="fill" />
-          </Link>
+        <div onClick={logoBoxClickHandler} className={styles.logoBox}>
+          <Image src="/amazon_logo.png" alt="Amazon Logo" layout="fill" />
         </div>
         <div className={styles.searchBox}>
           <input type="text" className={styles.searchBox__searchBar} />

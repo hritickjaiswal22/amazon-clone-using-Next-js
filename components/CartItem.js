@@ -22,8 +22,8 @@ function CartItem({ product }) {
           <div className={styles.ratingBox}>
             {Array(Math.floor(product.rating.rate))
               .fill()
-              .map(() => (
-                <StarIcon className={styles.starIcon} />
+              .map((param1, index) => (
+                <StarIcon key={index} className={styles.starIcon} />
               ))}
           </div>
           <p className={styles.cartItem__description}>{product.description}</p>
