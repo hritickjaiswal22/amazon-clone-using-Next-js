@@ -46,4 +46,4 @@ function Checkout() {
   );
 }
 
-export default checkout;
+export default Checkout;
