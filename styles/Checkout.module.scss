@@ -1,0 +1,48 @@
+.errorBox {
+  max-width: 30rem;
+  margin: 3rem auto;
+  box-shadow: 0 0 0 5px #fcf4f4 inset;
+  border: 2px solid #c40000;
+  padding: 2rem;
+  color: #c40000;
+  font-size: 2rem;
+  text-align: center;
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainTitle {
+  font-size: 4rem;
+}
+
+.article {
+  max-width: 100rem;
+  width: 95%;
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+.input {
+  width: 95%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}

@@ -1,5 +1,6 @@
 import React, { Fragment, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import { increaseQuantity, removeFromCart } from "../slices/cartSlice";
 import Header from "../components/Header";
@@ -11,6 +12,7 @@ function Cart() {
   const cartItems = useSelector((state) => state.cartState.cart);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authState.userId);
+  const router = useRouter();
 
   let totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -28,6 +30,13 @@ function Cart() {
           increaseQuantity([event.target.parentElement.parentElement.id])
         );
       }
+      if (
+        event.target.innerText === "Place Order" &&
+        !event.target.parentElement.className.includes("disabled") &&
+        totalPrice > 0
+      ) {
+        router.push("/checkout");
+      }
     }
   };
   return (
@@ -44,7 +53,9 @@ function Cart() {
         </article>
         <article
           className={
-            user ? styles.priceBox : `${styles.priceBox} ${styles.disabled}`
+            user && totalPrice > 0
+              ? styles.priceBox
+              : `${styles.priceBox} ${styles.disabled}`
           }
         >
           <h1>{`Total Price $${Math.round(totalPrice * 100) / 100}`}</h1>
