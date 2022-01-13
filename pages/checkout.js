@@ -6,7 +6,7 @@ import Button from "../components/Button";
 
 import styles from "../styles/Checkout.module.scss";
 
-function checkout() {
+function Checkout() {
   const cartItems = useSelector((state) => state.cartState.cart);
   const router = useRouter();
   const [address, setAddress] = useState("");
