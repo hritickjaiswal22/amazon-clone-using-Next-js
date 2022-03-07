@@ -1,16 +1,27 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import {
+  getDatabase,
+  ref,
+  set,
+  push,
+  serverTimestamp,
+} from "firebase/database";
 
 import Button from "../components/Button";
+import Loader from "../components/Loader";
 
 import styles from "../styles/Checkout.module.scss";
 
 function checkout() {
   const cartItems = useSelector((state) => state.cartState.cart);
+  const user = useSelector((state) => state.authState);
   const router = useRouter();
   const [address, setAddress] = useState("");
   const errorBoxRef = useRef();
+  const database = getDatabase();
+  const [isLoading, setIsLoading] = useState(false);
 
   let totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -22,7 +33,22 @@ function checkout() {
     if (address.length === 0) {
       errorBoxRef.current.classList.add(styles.visible);
       return (errorBoxRef.current.innerText = "Address is Required");
-    } else router.push("/");
+    } else {
+      setIsLoading(true);
+      const path = `orders/${user.userId}`;
+      const dbRef = ref(database, path);
+      const newRef = push(dbRef);
+
+      set(newRef, {
+        user: user,
+        orders: cartItems,
+        timestamp: serverTimestamp(),
+        deliveryAddess: address,
+      }).then((res) => {
+        setIsLoading(false);
+        router.push("/");
+      });
+    }
   };
 
   return (
@@ -39,7 +65,9 @@ function checkout() {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
-        <Button clickHandler={clickHandler}>Place Order</Button>
+        <Button clickHandler={clickHandler}>
+          {isLoading ? <Loader /> : "Place Order"}
+        </Button>
       </article>
       <div ref={errorBoxRef} className={styles.errorBox}></div>
     </main>

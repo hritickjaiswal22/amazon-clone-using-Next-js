@@ -1,0 +1,10 @@
+@import "./Cart.module.scss";
+
+.main {
+  @extend .main;
+}
+
+.orders {
+  @extend .cart;
+  width: 100%;
+}

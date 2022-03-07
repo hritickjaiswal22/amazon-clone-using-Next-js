@@ -1,0 +1,33 @@
+@import "./CartItem.module.scss";
+
+.orderItem {
+  @extend .cartItem;
+
+  &__infoBox {
+    @extend .cartItem__infoBox;
+  }
+
+  &__imageBox {
+    @extend .cartItem__imageBox;
+  }
+
+  &__descriptionBox {
+    @extend .cartItem__descriptionBox;
+  }
+
+  &__title {
+    @extend .cartItem__title;
+  }
+
+  &__description {
+    @extend .cartItem__description;
+  }
+
+  &__price {
+    @extend .cartItem__price;
+  }
+}
+
+.ratingBox {
+  @extend .ratingBox;
+}

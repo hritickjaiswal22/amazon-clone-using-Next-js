@@ -56,10 +56,17 @@ function Header() {
               </Link>
             )}
           </div>
-          <div>
-            <p>Returns</p>
-            <h1>& Orders</h1>
-          </div>
+          {user ? (
+            <Link href="/orders">
+              <div>
+                <p>Returns</p>
+                <h1>& Orders</h1>
+              </div>
+            </Link>
+          ) : (
+            ""
+          )}
+
           <Link href="/cart">
             <div>
               <p>

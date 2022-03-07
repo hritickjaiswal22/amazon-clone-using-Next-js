@@ -9,7 +9,6 @@ import { addToCart } from "../slices/cartSlice";
 export default function Home({ products }) {
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.authState);
-  console.log(authState);
 
   const addToCartClickHandler = (event) => {
     if (event.target.nodeName === "BUTTON") {
